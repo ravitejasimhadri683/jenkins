@@ -14,4 +14,4 @@ yum install fontconfig java-17-openjdk -y
 yum install jenkins -y
 systemctl daemon-reload
 systemctl enable jenkins
-echo -e "Installation Completed \n\t \e[32m *** Make sure  you need to start the service*** \[0m"
+echo -e "Installation Completed \n\t \e[32m *** Make sure to start the service***  \[0m"
