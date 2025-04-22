@@ -2,12 +2,16 @@ pipeline{
     agent any
     environment {
         ENV_VAR='pipeline.google.com'
+        SSH_CRED=credentials('ssh-cred')
     }
     stages{
         stage('Build'){
             steps{
-                echo 'Building the Node.js application...'
-                echo "Environment variable: ${ENV_VAR}"
+                sh '''
+                    echo 'Building the Node.js application...'
+                    echo "Environment variable: ${ENV_VAR}"
+                    env
+                '''
             }
         }
         stage('Test'){
