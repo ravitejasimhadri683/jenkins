@@ -11,5 +11,5 @@ pipeline{
                 echo 'Running tests...'
             }
         }    
-    }
+    } 
 }
