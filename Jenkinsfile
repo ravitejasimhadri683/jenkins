@@ -17,7 +17,7 @@ pipeline{
                 sh '''
                     echo 'Building the Node.js application...'
                     echo "Environment variable: ${ENV_VAR}"
-                    
+                    env
                 '''
             }
         }
