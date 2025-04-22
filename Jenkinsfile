@@ -1,6 +1,8 @@
 pipeline{
     agent any
-    ENV_VAR='pipeline.google.com'
+    environment {
+        ENV_VAR='pipeline.google.com'
+    }
     stages{
         stage('Build'){
             steps{
@@ -9,7 +11,9 @@ pipeline{
             }
         }
         stage('Test'){
-            ENV_VAR='stage.google.com'
+            environment {
+                ENV_VAR='stage.google.com'
+            }
             steps{  
                 echo 'Running tests...'
                 echo "Environment variable: ${ENV_VAR}"
