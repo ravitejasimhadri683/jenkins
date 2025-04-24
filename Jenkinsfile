@@ -37,12 +37,17 @@ pipeline{
                 echo 'Deploying the application...'
             }
         } 
-        stage('Maven 396') {
-                tools {
-                    maven 'mvn396' 
+        stage('Deploying To Prod') {
+            input {
+                message "Should we continue?"
+                ok "YES"
+                submitter "admin"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'No', description: 'YES or NO to proceed')
                 }
+            }
             steps {
-                sh 'mvn --version'
+                sh 'echo Running On Prod'
             }
         }
         
