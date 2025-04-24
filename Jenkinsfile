@@ -45,13 +45,6 @@ pipeline{
                 sh 'mvn --version'
             }
         }
-        stage('Maven 399') {
-                tools {
-                    maven 'mvn399' 
-                }
-            steps {
-                sh 'mvn --version'
-            }
-        }
+        
     } 
 }
