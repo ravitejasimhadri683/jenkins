@@ -12,7 +12,7 @@ pipeline{
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password') 
     }
     // triggers { cron('*/1 * * * *') }
-    triggers { pollSCM('*/1 * * * *') }
+    // triggers { pollSCM('*/1 * * * *') }
     stages{
         stage('Build'){
             steps{
@@ -37,5 +37,21 @@ pipeline{
                 echo 'Deploying the application...'
             }
         } 
+        stage('Maven 396') {
+                tools {
+                    maven 'mvn396' 
+                }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Maven 399') {
+                tools {
+                    maven 'mvn399' 
+                }
+            steps {
+                sh 'mvn --version'
+            }
+        }
     } 
 }
